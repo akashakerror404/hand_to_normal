@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import ConvertTextView
+from .views import convert_text_view
 
 urlpatterns = [
-        path('convert/', ConvertTextView.as_view(), name='convert-text'),
+        path('', convert_text_view, name='convert-text'),
 
 ]

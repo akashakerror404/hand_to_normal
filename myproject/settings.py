@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "rest_framework",
     "myapp"
 
 ]
@@ -53,11 +52,19 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'myproject.urls'
+import os
+def location(x):
+    return os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", x)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        "DIRS": [
+            location("templates"),  # templates directory of the project
+        ],  # Add this line
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
